@@ -17,6 +17,7 @@ public class jpaMain2 {
 
 
         try {
+            Member member = new Member();
 /*             //비영속
             Member member = new Member();
             member.setId(2L);
@@ -24,12 +25,13 @@ public class jpaMain2 {
             //영속
             em.persist(member);*/
 
-            Member member1 = new Member(3L,"tset12121");
-            Member member2 = new Member(4L,"tset99999");
+
+    /*        Member member1 = new Member(3L,"tset12121","10");
+            Member member2 = new Member(4L,"tset99999", "12");
 
 
             em.persist(member1);
-            em.persist(member2);
+            em.persist(member2);*/
 
            // em.detach(member1); // 영속성 컨테스트 차단
 
@@ -40,6 +42,7 @@ public class jpaMain2 {
 
             tx.commit();
         } catch (Exception e) {
+            e.printStackTrace();
             tx.rollback();
         } finally {
             em.close();
