@@ -18,6 +18,17 @@ public class jpaMain2 {
 
         try {
             Member member = new Member();
+
+                     //비영속
+
+            member.setId(2L);
+            member.setName("test2");
+            member.setAge("11");
+            member.setAge2(10);
+            member.setRoleType(RoleType.USER);
+
+            //영속
+            em.persist(member);
 /*             //비영속
             Member member = new Member();
             member.setId(2L);

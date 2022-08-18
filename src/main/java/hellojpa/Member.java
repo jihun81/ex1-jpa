@@ -8,10 +8,12 @@ import java.util.Date;
 /* name 매핑할 테이블
 *  catalog /
 *   */
+/*@Table(uniqueConstraints = ) 유티크 조건*/
 public class Member {
     @Id
     private Long id;
-    @Column(unique = true, length = 10)
+    //@Column(unique = true, length = 10)
+    @Column(name="name", nullable= false, columnDefinition = "varchar(100) default 'EMPTY'")
     private String name;
     private String age;
     private Integer age2;
@@ -21,12 +23,8 @@ public class Member {
     private Date cretaedDAte;
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastModifiedDate;
-    @Lob
+    @Lob//대용량 데이타
     private String description;
-
-
-
-
 
     //Getter, Setter …
 
@@ -68,11 +66,44 @@ public class Member {
         this.age = age;
     }
 
-    public int getAge2() {
+    public Integer getAge2() {
         return age2;
     }
 
-    public void setAge2(int age2) {
+    public void setAge2(Integer age2) {
         this.age2 = age2;
+    }
+
+
+    public RoleType getRoleType() {
+        return roleType;
+    }
+
+    public void setRoleType(RoleType roleType) {
+        this.roleType = roleType;
+    }
+
+    public Date getCretaedDAte() {
+        return cretaedDAte;
+    }
+
+    public void setCretaedDAte(Date cretaedDAte) {
+        this.cretaedDAte = cretaedDAte;
+    }
+
+    public Date getLastModifiedDate() {
+        return lastModifiedDate;
+    }
+
+    public void setLastModifiedDate(Date lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
