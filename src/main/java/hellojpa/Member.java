@@ -9,14 +9,20 @@ import java.util.Date;
 *  catalog /
 *   */
 /*@Table(uniqueConstraints = ) 유티크 조건*/
+@TableGenerator(name="member_seq_genernate", table="MY_SEQ", pkColumnName = "member_seq")
+@SequenceGenerator(name="member_seq_generator", sequenceName = "member_seq")//시퀀스
 public class Member {
     @Id
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "member_seq_generator")
     private Long id;
     //@Column(unique = true, length = 10)
     @Column(name="name", nullable= false, columnDefinition = "varchar(100) default 'EMPTY'")
     private String name;
+
     private String age;
+
     private Integer age2;
+
     @Enumerated(EnumType.STRING)
     private RoleType roleType;
     @Temporal(TemporalType.TIMESTAMP)
