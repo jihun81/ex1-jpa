@@ -21,14 +21,21 @@ public class jpaMain2 {
 
                      //비영속
 
-            member.setId(2L);
+           // member.setId(2L);
             member.setName("test2");
             member.setAge("11");
             member.setAge2(10);
             member.setRoleType(RoleType.USER);
 
-            //영속
+            Member member2 = new Member();
+            member2.setName("test2");
+            member2.setAge("11");
+            member2.setAge2(10);
+            member2.setRoleType(RoleType.USER);
+
+            //영속 단 시퀀스(GenerationType.IDENTITY) 사용시 바로 insert
             em.persist(member);
+            em.persist(member2);
 /*             //비영속
             Member member = new Member();
             member.setId(2L);
