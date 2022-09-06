@@ -1,6 +1,8 @@
 package hellojpa;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 /*@Entity(name = "Member")*/
@@ -18,6 +20,9 @@ public class Member {
     //@Column(unique = true, length = 10)
     @Column(name="name", nullable= false, columnDefinition = "varchar(100) default 'EMPTY'")
     private String name;
+
+    @OneToMany(mappedBy = "member")
+    private List<Order> orders = new ArrayList<>();
 
     private String age;
 
