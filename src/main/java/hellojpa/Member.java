@@ -10,7 +10,7 @@ import java.util.List;
 /* name 매핑할 테이블
 *  catalog /
 *   */
-/*@Table(uniqueConstraints = ) 유티크 조건*/
+/*@Table(uniqueConstraints = ) 유니크 조건*/
 /*@TableGenerator(name="member_seq_genernate", table="MY_SEQ", pkColumnName = "member_seq")*/
 @SequenceGenerator(name="member_seq_generator", sequenceName = "member_seq",initialValue = 1,allocationSize = 50)//시퀀스
 public class Member {
